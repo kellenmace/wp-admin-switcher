@@ -1,10 +1,10 @@
 # WordPress Admin Switcher #
 
 - **Author:** Kellen Mace
-- **Author URI:** http://kellenmace.com/
-- **Extension URI:** https://github.com/kellenmace/wp-admin-switcher/
+- **Author URL:** http://kellenmace.com/
+- **Extension URL:** https://github.com/kellenmace/wp-admin-switcher/
 - **License:** GPLv2 or later
-- **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+- **License URL:** http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description ##
 
