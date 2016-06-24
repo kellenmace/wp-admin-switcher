@@ -26,7 +26,7 @@ On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Li
 > that can be used to jump back & forth between the Admin and front end. How is this
 > any different?
 
-It's about efficency and productivity. The more you can leave your hands on the keyboard without reaching for the mouse/trackpad, the faster you'll be. Not to mention that if you're not yet logged in to a WordPress site, the Admin bar links aren't there for you to click on so you'll end up manually highlighting and deleting part of the URL and typing in 'wp-admin <enter>' every time. The following table illustrates the difference.
+It's about efficiency and productivity. The more you can leave your hands on the keyboard without reaching for the mouse/trackpad, the faster you'll be. Not to mention that if you're not yet logged in to a WordPress site, the Admin bar links aren't there for you to click on so you'll end up manually highlighting and deleting part of the URL and typing in 'wp-admin <enter>' every time. The following table illustrates the difference.
 
 <table>
     <tr>
