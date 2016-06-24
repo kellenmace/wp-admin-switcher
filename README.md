@@ -37,7 +37,7 @@ It's about efficiency and productivity. The more you can leave your hands on the
     <tr>
     	<th>Logging into a site</th>
         <td>Move your hand to your mouse/trackpad.
-Move the cursor up the omnibar/address bar.
+Move the cursor up to the omnibar/address bar.
 Click and highlight everything to the right of the domain.
 Type 'wp-admin' followed by the enter key.</td>
 		<td>Hit cmd/ctrl + shift + A</td>
