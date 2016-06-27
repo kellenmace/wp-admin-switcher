@@ -30,9 +30,9 @@ It's about efficiency and productivity. The more you can leave your hands on the
 
 <table>
     <tr>
-        <th></th>
-        <th>Without extension</th>
-        <th>With extension</th>
+        <th style="width: 20%"></th>
+        <th style="width: 55%">Without extension</th>
+        <th style="width: 25%">With extension</th>
     </tr>
     <tr>
     	<th>Logging into a site</th>
