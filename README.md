@@ -8,7 +8,7 @@
 
 ## Description ##
 
-A Google Chrome extension that enables you to switch to/from the WordPress Admin with a single keyboard shortcut or click.
+A Google Chrome extension that enables you to log in and switch to/from the WordPress Admin with a single keyboard shortcut or click.
 
 ## Use ##
 
