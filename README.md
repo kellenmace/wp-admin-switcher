@@ -12,7 +12,7 @@ A Google Chrome extension that enables you to log in and switch to/from the Word
 
 ## Use ##
 
-On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Linux) to switch to/from the WordPress Admin. Alternatively, clicking the extension icon produces the same behavior.
+On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Linux) to log in and switch to/from the WordPress Admin. Alternatively, clicking the extension icon produces the same behavior.
 
 ## Examples ##
 
