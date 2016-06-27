@@ -8,11 +8,11 @@
 
 ## Description ##
 
-A Google Chrome extension that enables you to log in and switch to/from the WordPress Admin with a single keyboard shortcut or click.
+A Google Chrome extension that enables you to quickly log into and switch to/from the WordPress admin using a single keyboard shortcut. It works on any WordPress site and is great for power users who want to skip the manual steps of always having to type "wp-admin" into the address bar to log in to a site, or always having to reach for their mouse/trackpad and click a link in the WP admin bar in order to switch to/from the admin; those processes are replaced with a single keyboard shortcut instead.
 
 ## Use ##
 
-On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Linux) to log in and switch to/from the WordPress Admin. Alternatively, clicking the extension icon produces the same behavior.
+On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Linux) to log into and switch to/from the WordPress Admin. Alternatively, clicking the extension icon produces the same behavior.
 
 ## Examples ##
 
