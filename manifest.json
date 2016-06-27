@@ -2,7 +2,7 @@
 	"name": "WordPress Admin Switcher",
 	"short_name": "WPAdminSwitcher",
 	"description": "Quickly log in and switch to/from the WordPress Admin with a single keyboard shortcut or click.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"homepage_url": "https://github.com/kellenmace/wp-admin-switcher/",
 	"manifest_version": 2,
 	"content_scripts": [ {
