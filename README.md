@@ -2,9 +2,10 @@
 
 - **Author:** Kellen Mace
 - **Author URL:** http://kellenmace.com/
-- **Extension URL:** https://github.com/kellenmace/wp-admin-switcher/
 - **License:** GPLv2 or later
 - **License URL:** http://www.gnu.org/licenses/gpl-2.0.html
+- **GitHub URL:** https://github.com/kellenmace/wp-admin-switcher/
+- **Chrome Web Store URL:** https://chrome.google.com/webstore/detail/wordpress-admin-switcher/pgjihalgddfomcjjpiafhppegjajpkac
 
 ## Description ##
 
