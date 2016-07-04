@@ -2,17 +2,18 @@
 
 - **Author:** Kellen Mace
 - **Author URL:** http://kellenmace.com/
-- **Extension URL:** https://github.com/kellenmace/wp-admin-switcher/
 - **License:** GPLv2 or later
 - **License URL:** http://www.gnu.org/licenses/gpl-2.0.html
+- **GitHub URL:** https://github.com/kellenmace/wp-admin-switcher/
+- **Chrome Web Store URL:** https://chrome.google.com/webstore/detail/wordpress-admin-switcher/pgjihalgddfomcjjpiafhppegjajpkac
 
 ## Description ##
 
-A Google Chrome extension that enables you to switch to/from the WordPress Admin with a single keyboard shortcut or click.
+A Google Chrome extension that enables you to quickly log into and switch to/from the WordPress admin using a single keyboard shortcut. It works on any WordPress site and is great for power users who want to skip the manual steps of always having to type "wp-admin" into the address bar to log in to a site, or always having to reach for their mouse/trackpad and click a link in the WP admin bar in order to switch to/from the admin; those processes are replaced with a single keyboard shortcut instead.
 
 ## Use ##
 
-On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Linux) to switch to/from the WordPress Admin. Alternatively, clicking the extension icon produces the same behavior.
+On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Linux) to log into and switch to/from the WordPress Admin. Alternatively, clicking the extension icon produces the same behavior.
 
 ## Examples ##
 
@@ -30,23 +31,23 @@ It's about efficiency and productivity. The more you can leave your hands on the
 
 <table>
     <tr>
-        <th></th>
-        <th>Without extension</th>
-        <th>With extension</th>
+        <th style="width: 20%"></th>
+        <th style="width: 55%">Without extension</th>
+        <th style="width: 25%">With extension</th>
     </tr>
     <tr>
-    	<th>Logging into a site</th>
+        <th>Logging into a site</th>
         <td>Move your hand to your mouse/trackpad.
 Move the cursor up to the omnibar/address bar.
 Click and highlight everything to the right of the domain.
 Type 'wp-admin' followed by the enter key.</td>
-		<td>Hit cmd/ctrl + shift + A</td>
+        <td>Hit cmd/ctrl + shift + A</td>
     </tr>
     <tr>
-    	<th>Switching between front end/admin</th>
+        <th>Switching between front end/admin</th>
         <td>Move your hand to your mouse/trackpad.
 Move the cursor up the WordPress Admin bar.
 Click one of the links to go to/from the Admin.</td>
-		<td>Hit cmd/ctrl + shift + A</td>
+        <td>Hit cmd/ctrl + shift + A</td>
     </tr>
 </table>

@@ -15,7 +15,7 @@
 	/**
 	 * Send message to content script.
 	 *
-	 * @param object message The message to send.
+	 * @param {object} message The message to send.
 	 */
 	that.sendMessageToContentScript = function( message ) {
 		chrome.tabs.query( { active: true, currentWindow: true }, function( tabs ) {
