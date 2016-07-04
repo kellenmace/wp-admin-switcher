@@ -444,63 +444,63 @@
 	 */
 	that.inferPostIdFromPageSource = function() {
 
-		var postId = that.getPostIdFromCommentsForm();
+		var postId = false,
+			postIdSelectors = {
+			commentsForm: '#comment_post_ID[value]',
+			shortlink: 'link[rel="shortlink"][href]',
+			body: 'body[class]'
 
-		if ( postId ) {
-			return postId;
+		};
+
+		for ( var index in postIdSelectors ) {
+
+			var postIdElement = document.querySelectorAll( postIdSelectors[ index ] );
+
+			if ( ! that.wereHtmlElementsFound( postIdElement ) ) {
+				continue;
+			}
+
+			switch ( index ) {
+				case 'commentsForm':
+					postId = that.getPostIdFromCommentsForm( postIdElement );
+					break;
+				case 'shortlink':
+					postId = that.getPostIdFromShortlink( postIdElement );
+					break;
+				case 'body':
+					postId = that.getPostIdFromBodyClass( postIdElement );
+			}
 		}
 
-		postId = that.getPostIdFromShortlink();
-
-		if ( postId ) {
-			return postId;
-		}
-
-		postId = that.getPostIdFromBodyClass();
-
-		if ( postId ) {
-			return postId;
-		}
-
-		return false;
+		return postId;
 	};
 
 	/**
 	 * Get post ID from comments form.
 	 *
-	 * @return {string|bool} The post ID or false on failure.
+	 * @param  {NodeList} postIdElement The HTML element containing the post ID.
+	 * @return {string}                 The post ID.
 	 */
-	that.getPostIdFromCommentsForm = function() {
-
-		var commentPostIdInput = document.querySelectorAll( '#comment_post_ID[value]' );
-
-		if ( commentPostIdInput.length > 0 ) {
-			return commentPostIdInput[0].value;
-		}
-
-		return false;
+	that.getPostIdFromCommentsForm = function( postIdElement ) {
+		return postIdElement[0].value;
 	};
 
 	/**
 	 * Get post ID from shortlink.
 	 *
-	 * @return {string|bool} The post ID or false on failure.
+	 * @param  {NodeList}    postIdElement The HTML element containing the post ID.
+	 * @return {string|bool}               The post ID or false on failure.
 	 */
-	that.getPostIdFromShortlink = function() {
+	that.getPostIdFromShortlink = function( postIdElement ) {
 
-		var shortlink = document.querySelectorAll( 'link[rel="shortlink"][href]' );
+		var shortlinkUrl = that.getHrefUrlFromHtmlElement( postIdElement );
 
-		if ( that.wereHtmlElementsFound( shortlink ) ) {
+		if ( ! that.isShortlinkUsingWpMeService( shortlinkUrl ) ) {
 
-			var shortlinkUrl = that.getHrefUrlFromHtmlElement( shortlink );
+			var positionOfUrlTextBeforePostId = that.getPositionOfUrlTextBeforePostId( shortlinkUrl );
 
-			if ( ! that.isShortlinkUsingWpMeService( shortlinkUrl ) ) {
-
-				var positionOfUrlTextBeforePostId = that.getPositionOfUrlTextBeforePostId( shortlinkUrl );
-
-				if ( that.doesShortlinkUrlContainPostId( positionOfUrlTextBeforePostId ) ) {
-					return that.getPostIdFromShortlinkUrl( shortlinkUrl, positionOfUrlTextBeforePostId );
-				}
+			if ( that.doesShortlinkUrlContainPostId( positionOfUrlTextBeforePostId ) ) {
+				return that.getPostIdFromShortlinkUrl( shortlinkUrl, positionOfUrlTextBeforePostId );
 			}
 		}
 
@@ -551,27 +551,24 @@
 	/**
 	 * Get post ID from body class.
 	 *
-	 * @return {string|bool} The post ID or false on failure.
+	 * @param  {NodeList}    postIdElement The HTML element containing the post ID.
+	 * @return {string|bool}               The post ID or false on failure.
 	 */
-	that.getPostIdFromBodyClass = function() {
+	that.getPostIdFromBodyClass = function( postIdElement ) {
 
-		var body = document.querySelectorAll( 'body[class]' );
+		var bodyClasses    = postIdElement[0].getAttribute( 'class' ),
+			postIdPosition = bodyClasses.indexOf( 'postid-' );
 
-		if ( body.length > 0 ) {
-			var bodyClasses    = body[0].getAttribute( 'class' ),
-				postIdPosition = bodyClasses.indexOf( 'postid-' );
+		if ( that.doesStringContainSubstring( postIdPosition ) ) {
+			bodyClasses = bodyClasses.substring( postIdPosition + 7, bodyClasses.length );
 
-			if ( that.doesStringContainSubstring( postIdPosition ) ) {
-				bodyClasses = bodyClasses.substring( postIdPosition + 7, bodyClasses.length );
+			var firstSpacePosition = bodyClasses.indexOf( ' ' );
 
-				var firstSpacePosition = bodyClasses.indexOf( ' ' );
-
-				if ( that.doesStringContainSubstring( firstSpacePosition ) ) {
-					return bodyClasses.substring( 0, firstSpacePosition );
-				}
-
-				return bodyClasses;
+			if ( that.doesStringContainSubstring( firstSpacePosition ) ) {
+				return bodyClasses.substring( 0, firstSpacePosition );
 			}
+
+			return bodyClasses;
 		}
 
 		return false;
