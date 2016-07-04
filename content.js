@@ -8,7 +8,7 @@
 	/**
 	 * Receive message from background script.
 	 *
-	 * @param {object} request The request (message).
+	 * @param {Object} request The request (message).
 	 */
 	that.receiveMessageFromBackgroundScript = function( request ) {
 		if ( request.hasOwnProperty( 'keyboardShortcutEntered' ) ) {
@@ -21,7 +21,7 @@
 	/**
 	 * Listen for keyboard shortcut.
 	 *
-	 * @param {object} event Keydown event.
+	 * @param {boolean} keyboardShortcutEntered Whether the keyboard shortcut was entered.
 	 */
 	that.keyboardShortcutListener = function( keyboardShortcutEntered ) {
 		if ( keyboardShortcutEntered ) {
@@ -32,7 +32,7 @@
 	/**
 	 * Listen for extension icon click.
 	 *
-	 * @param {bool} iconClicked Whether the icon was clicked.
+	 * @param {boolean} iconClicked Whether the icon was clicked.
 	 */
 	that.iconClickListener = function( iconClicked ) {
 		if ( iconClicked ) {
@@ -54,8 +54,8 @@
 	/**
 	 * Is this the WordPress admin?
 	 *
-	 * @param  {string} url The URL to check.
-	 * @return {bool}       Whether currently in the WordPress admin.
+	 * @param  {string} url    The URL to check.
+	 * @return {boolean}       Whether currently in the WordPress admin.
 	 */
 	that.isWordPressAdmin = function( url ) {
 		return ( url.indexOf( '/wp-admin/' ) > -1 ) || ( url.indexOf( '/wp-login.php' ) > -1 );
@@ -105,7 +105,7 @@
 	 * Try to get the link to view/preview the post first,
 	 * then fallback to getting the main front end url.
 	 *
-	 * @return {string|bool} The url or false on failure.
+	 * @return {string|boolean} The url or false on failure.
 	 */
 	that.getFrontEndUrlFromAdminBar = function() {
 
@@ -121,7 +121,7 @@
 	/**
 	 * Get front end URL from window.location.
 	 *
-	 * @return {string|bool} The url or false on failure.
+	 * @return {string|boolean} The url or false on failure.
 	 */
 	that.getFrontEndUrlFromWindowLocation = function() {
 
@@ -146,7 +146,7 @@
 	 * Get the position of a string in the current URL.
 	 *
 	 * @param  {string} string The string to find within the URL.
-	 * @return {int}           The position of string within the URL.
+	 * @return {number}        The position of string within the URL.
 	 */
 	that.getPositionOfStringInCurrentUrl = function( string ) {
 		return window.location.href.indexOf( string );
@@ -155,8 +155,8 @@
 	/**
 	 * Does the URL contain a string?
 	 *
-	 * @param  {string} stringPosition The position of string within the URL.
-	 * @return {bool}                  Whether the URL contains the string.
+	 * @param  {number}  stringPosition The position of string within the URL.
+	 * @return {boolean}                Whether the URL contains the string.
 	 */
 	that.doesUrlContainString = function( stringPosition ) {
 		return that.doesStringContainSubstring( stringPosition );
@@ -165,8 +165,8 @@
 	/**
 	 * Does string contain a substring?
 	 *
-	 * @param  {int}  stringPosition The position of substring within the string.
-	 * @return {bool}                Whether the substring was found within the string.
+	 * @param  {number} stringPosition The position of substring within the string.
+	 * @return {boolean}               Whether the substring was found within the string.
 	 */
 	that.doesStringContainSubstring = function( stringPosition ) {
 		return stringPosition > -1;
@@ -175,7 +175,7 @@
 	/**
 	 * Get part of URL before the provided position.
 	 *
-	 * @param  {int}    stringPosition Exclude the character at this position and following.
+	 * @param  {number} stringPosition Exclude the character at this position and following.
 	 * @return {string}                The part of the URL before stringPosition.
 	 */
 	that.getPartOfUrlBeforePosition = function( stringPosition ) {
@@ -209,7 +209,7 @@
 	/**
 	 * Get admin URL from page source.
 	 *
-	 * @return {string|bool} The admin URL or false on failure.
+	 * @return {string|boolean} The admin URL or false on failure.
 	 */
 	that.getAdminUrlFromPageSource = function() {
 
@@ -254,7 +254,7 @@
 	/**
 	 * Get WP admin URL from the admin bar.
 	 *
-	 * @return {string|bool} The URL or false on failure.
+	 * @return {string|boolean} The URL or false on failure.
 	 */
 	that.getAdminUrlFromAdminBar = function() {
 
@@ -269,8 +269,8 @@
 	/**
 	 * Get URL from the WP admin bar.
 	 *
-	 * @param  {object}      adminBarIds The element IDs to use as selectors.
-	 * @return {string|bool}             The URL or false on failure.
+	 * @param  {Object}         adminBarIds The element IDs to use as selectors.
+	 * @return {string|boolean}             The URL or false on failure.
 	 */
 	that.getUrlFromAdminBar = function ( adminBarIds ) {
 
@@ -293,8 +293,8 @@
 	/**
 	 * Is this an empty object?
 	 *
-	 * @param  {object} object The object to check.
-	 * @return {bool}          Whether the object is empty.
+	 * @param  {Object} object The object to check.
+	 * @return {boolean}       Whether the object is empty.
 	 */
 	that.isEmptyObject = function( object ) {
 		return ( Object != object.constructor ) || ( Object.keys( object ).length < 1 );
@@ -303,8 +303,8 @@
 	/**
 	 * Get admin bar anchor HTML element.
 	 *
-	 * @param  {string}   adminBarId The id of the HTML element to get. 
-	 * @return {NodeList}            The matching HTML element.
+	 * @param  {string} adminBarId The id of the HTML element to get. 
+	 * @return {Object}            The matching HTML element NodeList.
 	 */
 	that.getAdminBarAnchorHtmlElement = function( adminBarId ) {
 		return document.querySelectorAll( adminBarId + ' > a.ab-item[href]' );
@@ -313,8 +313,8 @@
 	/**
 	 * Here any HTML elements found?
 	 *
-	 * @param  {[NodeList} nodelist The list of HTML elements found.
-	 * @return {bool}               Whether HTML elements were found.
+	 * @param  {Object}  nodelist The NodeList of HTML elements found.
+	 * @return {boolean}          Whether HTML elements were found.
 	 */
 	that.wereHtmlElementsFound = function( nodelist ) {
 		return nodelist.length > 0;
@@ -323,8 +323,8 @@
 	/**
 	 * Get the URL from an HTML element's href property.
 	 *
-	 * @param  {NodeList} anchorElement The anchor HTML element.
-	 * @return {string}                 The URL.
+	 * @param  {Object} element The HTML element NodeList.
+	 * @return {string}         The URL.
 	 */
 	that.getHrefUrlFromHtmlElement = function( element ) {
 		return element[0].getAttribute( 'href' );
@@ -337,7 +337,7 @@
 	 * because subdomain multisite installs need to have the
 	 * /site-name/ part of the pathname preserved.
 	 *
-	 * @return {string|bool} The URL or false on failure.
+	 * @return {string|boolean} The URL or false on failure.
 	 */
 	that.inferUrlFromPageLinks = function() {
 
@@ -372,9 +372,9 @@
 	/**
 	 * Extract the URL from an HTML element.
 	 *
-	 * @param  {object}      element   The HTML element
-	 * @param  {string}      attribute The attribute to get the URL from: 'href' or 'src'.
-	 * @return {string|bool}           The URL or false on failure.
+	 * @param  {Object}         element   The HTML element
+	 * @param  {string}         attribute The attribute to get the URL from: 'href' or 'src'.
+	 * @return {string|boolean}           The URL or false on failure.
 	 */
 	that.inferUrlFromPageLink = function( element, attribute ) {
 
@@ -404,25 +404,24 @@
 	that.getAttributeForSelector = function( selector ) {
 
 		switch ( selector ) {
+			case 'scripts':
+				return 'src';
 			case 'stylesheets':
 			case 'rss':
 			case 'xmlrpc':
+			default:
 				return 'href';
-			case 'scripts':
-				return 'src';
 		}
-
-		return false;
 	};
 
 	/**
 	 * Extract part of a URL from an HTML element.
 	 *
-	 * @param  {object}      element   The HTML element.
-	 * @param  {string}      attribute The attribute to get URL from ('href' or 'src').
-	 * @param  {string}      string    The text to search for and exclude, along with
-	 *                                 everything after it.
-	 * @return {string|bool}           The part of the URL or false on failure.
+	 * @param  {Object}         element   The HTML element.
+	 * @param  {string}         attribute The attribute to get URL from ('href' or 'src').
+	 * @param  {string}         string    The text to search for and exclude, along with
+	 *                                    everything after it.
+	 * @return {string|boolean}           The part of the URL or false on failure.
 	 */
 	that.getUrlSubstringFromHtmlElement = function( element, attribute, string ) {
 
@@ -440,7 +439,7 @@
 	 *
 	 * Not all WordPress sites will have this exposed.
 	 *
-	 * @return {string|bool} The post ID or false on failure.
+	 * @return {string|boolean} The post ID or false on failure.
 	 */
 	that.inferPostIdFromPageSource = function() {
 
@@ -478,8 +477,8 @@
 	/**
 	 * Get post ID from comments form.
 	 *
-	 * @param  {NodeList} postIdElement The HTML element containing the post ID.
-	 * @return {string}                 The post ID.
+	 * @param  {Object} postIdElement The HTML element NodeList containing the post ID.
+	 * @return {string}               The post ID.
 	 */
 	that.getPostIdFromCommentsForm = function( postIdElement ) {
 		return postIdElement[0].value;
@@ -488,8 +487,8 @@
 	/**
 	 * Get post ID from shortlink.
 	 *
-	 * @param  {NodeList}    postIdElement The HTML element containing the post ID.
-	 * @return {string|bool}               The post ID or false on failure.
+	 * @param  {Object}         postIdElement The HTML element NodeList containing the post ID.
+	 * @return {string|boolean}               The post ID or false on failure.
 	 */
 	that.getPostIdFromShortlink = function( postIdElement ) {
 
@@ -510,8 +509,8 @@
 	/**
 	 * Is shortlink using wp.me service?
 	 *
-	 * @param  {string} shortlinkUrl The shortlink URL.
-	 * @return {bool}                Whether shorlinkUrl is using wp.me.
+	 * @param  {string}  shortlinkUrl The shortlink URL.
+	 * @return {boolean}              Whether shorlinkUrl is using wp.me.
 	 */
 	that.isShortlinkUsingWpMeService = function( shortlinkUrl ) {
 		return shortlinkUrl.indexOf( '//wp.me/' ) > -1;
@@ -521,7 +520,7 @@
 	 * Get the position of the URL before the post ID.
 	 *
 	 * @param  {string} shortlinkUrl The URL to search.
-	 * @return {int}                 The position of the post ID.
+	 * @return {number}              The position of the post ID.
 	 */
 	that.getPositionOfUrlTextBeforePostId = function( shortlinkUrl ) {
 		return shortlinkUrl.indexOf( '/?p=' );
@@ -530,8 +529,8 @@
 	/**
 	 * Does the shortlink URL contain the post ID?
 	 *
-	 * @param  {int} positionOfUrlTextBeforePostId The position of the URL text before the post ID.
-	 * @return {bool}                              Whether the URL contains the post ID.
+	 * @param  {number}  positionOfUrlTextBeforePostId The position of the URL text before the post ID.
+	 * @return {boolean}                               Whether the URL contains the post ID.
 	 */
 	that.doesShortlinkUrlContainPostId = function( positionOfUrlTextBeforePostId ) {
 		return that.doesStringContainSubstring( positionOfUrlTextBeforePostId );
@@ -541,7 +540,7 @@
 	 * Extract the post ID from the shortlink URL.
 	 *
 	 * @param  {string} shortlinkUrl                  The shortlink URL.
-	 * @param  {int}    positionOfUrlTextBeforePostId The position of URL text before the post ID.
+	 * @param  {number} positionOfUrlTextBeforePostId The position of URL text before the post ID.
 	 * @return {string}                               The post ID.
 	 */
 	that.getPostIdFromShortlinkUrl = function( shortlinkUrl, positionOfUrlTextBeforePostId ) {
@@ -551,8 +550,8 @@
 	/**
 	 * Get post ID from body class.
 	 *
-	 * @param  {NodeList}    postIdElement The HTML element containing the post ID.
-	 * @return {string|bool}               The post ID or false on failure.
+	 * @param  {Object}         postIdElement The HTML element NodeList containing the post ID.
+	 * @return {string|boolean}               The post ID or false on failure.
 	 */
 	that.getPostIdFromBodyClass = function( postIdElement ) {
 
