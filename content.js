@@ -6,24 +6,27 @@
 ( function( window, document, chrome, that ) {
 
 	/**
-	 * Listen for keyboard shortcut.
+	 * Receive message from background script.
 	 *
-	 * @param {object} event Keydown event.
+	 * @param {object} request The request (message).
 	 */
-	that.keyboardShortcutListener = function( event ) {
-		if ( that.userEnteredKeyboardShortcut( event ) ) {
-			that.toggleAdmin();
+	that.receiveMessageFromBackgroundScript = function( request ) {
+		if ( request.hasOwnProperty( 'keyboardShortcutEntered' ) ) {
+			that.keyboardShortcutListener( request.keyboardShortcutEntered );
+		} else if ( request.hasOwnProperty( 'iconClicked' ) ) {
+			that.iconClickListener( request.iconClicked );
 		}
 	};
 
 	/**
-	 * Did the user enter the keyboard shortcut (cmd/ctrl + shift + A)?
+	 * Listen for keyboard shortcut.
 	 *
-	 * @param  {object} event Keydown event.
-	 * @return {bool}         Whether the keyboard shortcut was entered.
+	 * @param {object} event Keydown event.
 	 */
-	that.userEnteredKeyboardShortcut = function( event ) {
-		return ( event.metaKey || event.ctrlKey ) && event.shiftKey && 65 == event.which;
+	that.keyboardShortcutListener = function( keyboardShortcutEntered ) {
+		if ( keyboardShortcutEntered ) {
+			that.toggleAdmin();
+		}
 	};
 
 	/**
@@ -575,17 +578,6 @@
 	};
 
 	/**
-	 * Receive message from background script.
-	 *
-	 * @param {object} request The request (message).
-	 */
-	that.receiveMessageFromBackgroundScript = function( request ) {
-		if ( request.hasOwnProperty( 'iconClicked' ) ) {
-			that.iconClickListener( request.iconClicked );
-		}
-	};
-
-	/**
 	 * Add a trailing slash to a URL if it doesn't already have one.
 	 *
 	 * @param  {string} url The URL.
@@ -613,7 +605,6 @@
 	 * Bind event listeners.
 	 */
 	that.bindEvents = function() {
-		document.addEventListener( 'keydown', that.keyboardShortcutListener, false );
 		chrome.runtime.onMessage.addListener( that.receiveMessageFromBackgroundScript );
 	};
 

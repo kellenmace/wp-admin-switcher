@@ -6,6 +6,13 @@
 ( function( window, chrome, that ) {
 
 	/**
+	 * Keyboard shortcut listener.
+	 */
+	that.keyboardShortcutListener = function() {
+		that.sendMessageToContentScript( { keyboardShortcutEntered: true } );
+	};
+
+	/**
 	 * Icon click listener.
 	 */
 	that.iconClickListener = function() {
@@ -27,6 +34,7 @@
 	 * Combine all events.
 	 */
 	that.bindEvents = function() {
+		chrome.commands.onCommand.addListener( that.keyboardShortcutListener );
 		chrome.browserAction.onClicked.addListener( that.iconClickListener );
 	};
 
