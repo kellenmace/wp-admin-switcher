@@ -406,9 +406,6 @@
 		switch ( selector ) {
 			case 'scripts':
 				return 'src';
-			case 'stylesheets':
-			case 'rss':
-			case 'xmlrpc':
 			default:
 				return 'href';
 		}
