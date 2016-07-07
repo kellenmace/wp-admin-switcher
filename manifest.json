@@ -24,7 +24,7 @@
           "default": "Ctrl+Shift+A",
           "mac": "Command+Shift+A"
         },
-        "description": "Toggle feature foo"
+        "description": "Switch to/from admin"
       }
     }
 }
