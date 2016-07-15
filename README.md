@@ -23,6 +23,10 @@ On any WordPress site, hit cmd + shift + A (Mac) or ctrl + shift + A (Windows/Li
 
 ## FAQ ##
 
+> Can I change the keyboard shortcut from cmd/ctrl + shift + A to something else?
+
+Yes. Go to the Chrome menu > More Tools > Extensions and check the "Keyboard shortcuts" link at the bottom. Find WordPress Admin Switcher on the list click the field next to "Switch to/from admin". Enter your own custom keyboard shortcut.
+
 > If I'm logged in to a site, WordPress provides links in the admin bar at the top
 > that can be used to jump back & forth between the admin and front end. How is this
 > any different?
