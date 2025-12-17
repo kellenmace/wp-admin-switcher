@@ -18,11 +18,25 @@
    * Switch to/from the WordPress Admin.
    */
   function toggleAdmin() {
-    if (isWordPressAdmin(window.location.pathname)) {
-      window.location = getFrontEndUrl();
-    } else {
-      window.location = getAdminUrl();
-    }
+    getSettings((settings) => {
+      const openInNewTab = settings.openInNewTab;
+      const adminUrl = getAdminUrl();
+      const frontEndUrl = getFrontEndUrl();
+
+      if (isWordPressAdmin(window.location.pathname)) {
+        if (openInNewTab) {
+          window.open(frontEndUrl, '_blank');
+        } else {
+          window.location = frontEndUrl;
+        }
+      } else {
+        if (openInNewTab) {
+          window.open(adminUrl, '_blank');
+        } else {
+          window.location = adminUrl;
+        }
+      }
+    });
   }
 
   /**
@@ -512,6 +526,17 @@
     if (url.endsWith("/")) return url;
 
     return url + "/";
+  }
+
+  /**
+   * Get the extension settings.
+   *
+   * @param {function} callback The callback function to handle the settings.
+   */
+  function getSettings(callback) {
+    chrome.storage.sync.get(['openInNewTab'], (settings) => {
+      callback(settings);
+    });
   }
 
   // Add event listener

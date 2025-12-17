@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>WordPress Admin Switcher Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .heading-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .heading-container h1 {
+            color: #404040;
+            margin: 0;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #404040;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 10px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading-container">
+            <img id="plugin-icon" src="images/icon-38.png" alt="WordPress Admin Switcher Icon" width="38" height="38" />
+            <h1>WordPress Admin Switcher</h1>
+        </div>
+        <h2>Options</h2>
+        <label>
+            <input type="checkbox" id="openInNewTab">
+            Open admin page in new tab
+        </label>
+        <div class="save-button-container">
+            <button id="save">Save</button>
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+
+</html>
