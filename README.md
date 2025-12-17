@@ -32,6 +32,6 @@ This extension is great for power users who want to skip the manual steps of alw
 
 Go to the Chrome "Keyboard shortcuts" page by navigating to `chrome://extensions/shortcuts` in a browser tab. Find the "WordPress Admin Switcher" extension on the list click the field next to "Switch to/from admin". Enter your own custom keyboard shortcut.
 
-> If I'm logged in to a site, WordPress provides links in the admin bar at the top that can be used to jump back & forth between the admin and front end. How is this any different?
+> WordPress already provides links in the admin bar that can be used to jump back & forth between the admin and front end. How is this any different?
 
 It's about efficiency and productivity. The more you can leave your hands on the keyboard without reaching for the mouse/trackpad, the faster you'll be. Not to mention that if you're not yet logged in to a WordPress site, the admin bar links aren't there for you to click on so you'll end up manually highlighting and deleting part of the URL and typing in "wp-admin" every time.
