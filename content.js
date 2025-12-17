@@ -20,22 +20,35 @@
   function toggleAdmin() {
     getSettings((settings) => {
       const openInNewTab = settings.openInNewTab;
-      const adminUrl = getAdminUrl();
-      const frontEndUrl = getFrontEndUrl();
 
       if (isWordPressAdmin(window.location.pathname)) {
+        const frontEndUrl = getFrontEndUrl();
+
         if (openInNewTab) {
-          window.open(frontEndUrl, '_blank');
+          window.open(frontEndUrl, "_blank");
         } else {
           window.location = frontEndUrl;
         }
       } else {
+        const adminUrl = getAdminUrl();
+
         if (openInNewTab) {
-          window.open(adminUrl, '_blank');
+          window.open(adminUrl, "_blank");
         } else {
           window.location = adminUrl;
         }
       }
+    });
+  }
+
+  /**
+   * Get the extension settings.
+   *
+   * @param {function} callback The callback function to handle the settings.
+   */
+  function getSettings(callback) {
+    chrome.storage.sync.get(["openInNewTab"], (settings) => {
+      callback(settings);
     });
   }
 
@@ -260,7 +273,7 @@
   }
 
   /**
-   * Here any HTML elements found?
+   * Were any HTML elements found?
    *
    * @param  {Object}  nodelist The NodeList of HTML elements found.
    * @return {boolean}          Whether HTML elements were found.
@@ -526,17 +539,6 @@
     if (url.endsWith("/")) return url;
 
     return url + "/";
-  }
-
-  /**
-   * Get the extension settings.
-   *
-   * @param {function} callback The callback function to handle the settings.
-   */
-  function getSettings(callback) {
-    chrome.storage.sync.get(['openInNewTab'], (settings) => {
-      callback(settings);
-    });
   }
 
   // Add event listener
