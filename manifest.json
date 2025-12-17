@@ -5,9 +5,7 @@
   "version": "2.1.0",
   "homepage_url": "https://github.com/kellenmace/wp-admin-switcher/",
   "manifest_version": 3,
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
@@ -26,8 +24,8 @@
   "commands": {
     "toggle-feature-foo": {
       "suggested_key": {
-        "default": "Ctrl+Shift+A",
-        "mac": "Command+Shift+A"
+        "default": "Alt+Shift+A",
+        "mac": "Alt+Shift+A"
       },
       "description": "Switch to/from admin"
     }
